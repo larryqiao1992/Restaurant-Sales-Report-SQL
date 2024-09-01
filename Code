@@ -1,0 +1,66 @@
+--1.Sort by transaction type
+	Select
+	Transaction_type,
+	Count(transaction_type) as number
+	From
+	Foodsales
+	Group by
+	Transaction_type
+
+--2.Sort by item name
+	Select
+	Item_name,
+	Count(item_name) as number
+	From
+	Foodsales
+	Group by
+	Item_name
+	Order by
+	Number desc
+
+--3.Sort by item name and time of sale
+	Select
+	Item_name,
+	Time_of_sale,
+	Count(item_name) as number
+	From
+	Foodsales
+	Group by
+	Item_name,
+	Time_of_sale
+	Order by
+	Item_name
+
+--4.Sort by time of sale and item name
+	Select
+	Time_of_sale,
+	Item_name,
+	Count(time_of_sale) as number
+	From
+	Foodsales
+	Group by
+	Time_of_sale,
+	Item_name
+	Order by
+	Time_of_sale
+
+--5.Transaction time distribution
+	Select
+	Time_of_sale,
+	Count(transaction_type) as number
+	From
+	Foodsales
+	Group by 
+	Time_of_sale
+
+--6.Average transaction amount by time of sale
+	Select
+	Time_of_sale,
+	Round(avg(transaction_amount),2) as amount
+	From
+	Foodsales
+	Group by
+	Time_of_sale
+	Order by
+	Amount desc
+
